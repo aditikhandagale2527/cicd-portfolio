@@ -34,9 +34,9 @@ jobs:
           host: ${{ secrets.EC2_HOST}}      # Q2: Name of your EC2 IP secret
           username: ${{ secrets.EC2_USERNAME }}  # Q3: Name of your SSH username secret
           key: ${{ secrets.EC2_SSH_KEY}}       # Q4: Name of your SSH private key secret
+          port: 22
           script: |
-            whoami
             cd /var/www/html
             # Q5: Git command to get latest code
-            sudo git pull origin main
+            git pull origin main
             sudo systemctl restart nginx
